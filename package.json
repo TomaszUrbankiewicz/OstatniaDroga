@@ -2,7 +2,7 @@
   "name": "es6-react",
   "version": "2.1.0",
   "scripts": {
-    "start": "webpack-dev-server --hot -d",
+    "start": "webpack-dev-server --hot -d ",
     "build": "webpack -p"
   },
   "devDependencies": {

@@ -1,0 +1,47 @@
+
+.containerChoice{
+    width: 25%;
+    height: 90%;
+    background-color:$colors-background;
+    border-radius: 35px;
+    text-align: center;
+    padding-bottom: 20px;
+    @media (max-width: 900px) {
+        margin: 20px;
+        
+        width: 60%;
+
+    }
+    h1{
+        height: 15%;
+        text-align: center;
+        padding: 14px;
+        font-size: 30px; 
+        font-weight: 700;
+        color:$color-blue;
+    }
+    ul{
+        height:50%;
+        margin-top: 30px;
+        margin-bottom: 20PX;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        
+        li{
+            font-size: 25px;
+            margin-top: 10px;
+            color: $color-fonts-2;
+        }
+    }
+    img{
+        width: 22%;
+        height: 22%;
+    }
+   
+    
+}
+.containerChoiceHover{
+    background-color: #182634b2;
+    cursor: pointer;
+}

@@ -1,0 +1,47 @@
+.containerBackraund{
+
+height: 100vh;
+width: 100vw;
+display: flex;
+justify-content: center;
+align-items: center;
+@media (max-width: 900px) {
+   height: 100%;
+  }
+
+
+    .containerApp{   
+        background-color: $color-blue;
+        width: 90%;
+        height: 80%;
+        border-radius: 25px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .containerAppChoice{
+            margin-top:50px ;
+            margin-bottom: 30px;
+            height: 90%;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            @media (max-width: 900px) {
+                display: flex;
+                flex-direction: column;
+                
+            }
+        }
+        button{
+            padding: 25px;
+            background-color: $colors-background ;
+            border: none;
+            border-radius: 255px;
+            margin-bottom: 20px;
+            color: $color-fonts-2;
+            
+        }
+    }
+}

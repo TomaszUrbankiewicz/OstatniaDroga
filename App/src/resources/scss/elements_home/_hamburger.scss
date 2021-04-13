@@ -1,0 +1,43 @@
+.containerhamburger{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+   
+    .hamburger{
+        width: 50px;
+        height: 30px;
+        
+        display: flex;
+        flex-direction: column;
+        justify-content:space-between;
+        position: relative;
+        &:hover{
+            cursor: pointer;
+        }
+        .belt{
+            background-color:$color-blue ;
+            width: 100%;
+            height: 10%;
+            transition:1.5s;
+        }
+
+        .belt_first{
+            @extend .belt;
+            transform:rotate(-130deg);
+            position: absolute;
+            transition:1.5s;
+            top:0;
+            left:0;
+        }
+        .belt_third{
+            @extend .belt;
+            transform:rotate(130deg);
+            position: absolute;
+            transition:1.5s;
+            top:0;
+            left:0;
+        }
+    }
+}
