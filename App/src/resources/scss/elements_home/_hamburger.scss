@@ -20,14 +20,13 @@
             background-color:$color-blue ;
             width: 100%;
             height: 10%;
-            transition:1.5s;
+            transition:1s;
         }
 
         .belt_first{
             @extend .belt;
             transform:rotate(-130deg);
             position: absolute;
-            transition:1.5s;
             top:0;
             left:0;
         }
@@ -35,7 +34,7 @@
             @extend .belt;
             transform:rotate(130deg);
             position: absolute;
-            transition:1.5s;
+            transition:1s;
             top:0;
             left:0;
         }

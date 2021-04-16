@@ -4,8 +4,14 @@ import Hamburger from "./Hamburger"
 import MenuBottom  from "./MenuBottom"
 
 const Home=(props)=>{
-
+/// stejt pokazujący strukture pełóne meni lub hamburger
     const[hamburgerShow, setHamburgerShow]=useState(true)
+    const [menuBottomShow, setMenuBottomShow]=useState(true)
+
+
+    const menuBottomHendel=()=>{
+        setMenuBottomShow((menuBottomShow)?false:true)
+    }
 
     const resizeHendle=()=>{
         if (window.innerWidth<1170){
@@ -27,8 +33,8 @@ const Home=(props)=>{
 
     return(
     <div className="containerHome">
-        {(hamburgerShow)?<Header/>:<Hamburger/>}
-        <MenuBottom/>
+        {(hamburgerShow)?<Header/>:<Hamburger menuBottomHendel={menuBottomHendel} />}
+        {(menuBottomShow)? null: <MenuBottom />}
         <button onClick={transitionHendle}>wejdz na aplikacje</button>
     </div>
     )

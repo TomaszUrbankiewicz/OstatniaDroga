@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import MenuBottom  from "./MenuBottom";
 
-const Hamburger=()=>{
+
+const Hamburger=(props)=>{
     
     const [changeBelt, setChangeBelt]=useState(true)
-
-
+    
     const changeHamburgerHendel=()=>{
         setChangeBelt((changeBelt)?false:true)
+        props.menuBottomHendel()
     }
     return(
         <div className="naw">

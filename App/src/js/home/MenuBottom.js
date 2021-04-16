@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import header_menu from "./data/header_menu" 
+import header_menu from "../data/header_menu"; 
 import HeaderHomeLi from"./HeaderHomeLi"
 
 
 
-const MenuBottom=(props)=>{
+const MenuBottom=()=>{
 
     return(
         <div className="container_menu_bottom">

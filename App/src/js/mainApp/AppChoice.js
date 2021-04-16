@@ -2,7 +2,7 @@
 import React, {Component, useEffect, useState} from "react";
 
 const AppChoice=(props)=>{
-    const [hover, setHover]=useState(false)
+    const [hover, setHover]=useState(true)
 
     const onHover=()=>{
         setHover(true)

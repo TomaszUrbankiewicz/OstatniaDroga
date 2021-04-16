@@ -2,13 +2,13 @@
 import './resources/scss/index.scss';
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import MainApp from "./js/MainApp";
-import Home from "./js/Home"
+import MainApp from "./js/mainApp/MainApp";
+import Home from "./js/home/Home"
 
 
 const  App= () => {
 //steit do wykorzystywany w zdarzeniu do zmiany witoku aplikacji/strony głównej
-  const [transition, setTransition]=useState(true)
+  const [transition, setTransition]=useState(false)
 
 //zdarzenie tóre zmienia widok aplikacja?strona główna
   const transitionHendle=()=>{
