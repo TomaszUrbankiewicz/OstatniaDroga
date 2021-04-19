@@ -9,7 +9,6 @@ const HeaderHomeLi=(props)=>{
     }
 
     const onMouseLeaveHover=()=>{
-        console.log("działam ")
         setAddClassHover(false)
     }
 

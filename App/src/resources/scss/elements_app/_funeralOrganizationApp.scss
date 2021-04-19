@@ -19,10 +19,7 @@
                 margin-bottom: 2%;
                 background-color: $colors-background;
                 color: $color-fonts-2;
-                @media (max-width: 768px){
-                    
-    
-                }
+               
                 @media (max-width: 480px){
                     
                     font-size: 20px;
@@ -35,10 +32,7 @@
                 @extend h1;
                 background-color: $colors-background-2;
                 color:$colors-background ;
-                @media (max-width: 768px){
-                    
-    
-                }
+            
                 @media (max-width: 480px){
                     
                     font-size: 20px;
@@ -61,13 +55,12 @@
             border-radius: 50px;
             border: none;
             color:$color-fonts-2;
+            
             @media (max-width: 768px){
                 width:70%;
-
             }
             @media (max-width: 480px){
                 width:100%;
-                
                 width: 90%;
             }
         }

@@ -46,7 +46,7 @@ const LoginComponent=(props)=>{
             <h1>ZALOGUJ SIĘ DO APLIKACJI</h1>
             <div className="containerInputLogo">
                 <label>Login</label><input type="text" placeholder="podaj login" value={loginValue} onChange={changeValue} name="login"/><br/>
-                <label>Hasło</label><input type="text" placeholder="podaj hasło" value={hasloValue} onChange={changeValue} name="haslo"/><br/>
+                <label>Hasło</label><input type="password" placeholder="podaj hasło" value={hasloValue} onChange={changeValue} name="haslo"/><br/>
                 <button onClick={loginTry}>ZALOGUJ</button>
             </div>
         </div>

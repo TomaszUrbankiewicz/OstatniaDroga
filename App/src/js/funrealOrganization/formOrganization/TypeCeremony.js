@@ -1,48 +1,60 @@
 import React, {Component, useEffect, useState} from "react";
 import Checkedbox from "./Checkedbox";
+import ListCoffinsAndUrns from "./ListCoffinsAndUrns";
+import service from "../../data/service";
+import DateEndHouer from "./DateEndHouer";
+import SelectionCemetery from "./SelectionCemetery";
+import TypeCar from "./TypeCar";
+import TypeFlowers from "./TypeFlowers";
 
-const TypeCeremony=()=>{
-    const[checkboxValue, setCheckboxValue]=useState({a:false, b:false, test:""})
+
+
+const TypeCeremony=(props)=>{
 
     const changeCheckboxHendel=(e)=>{
-        const{name, checked}=e.target
-        console.log(Boolean( checked))
-        setCheckboxValue(poprzedni=>{
-            return{
-                ...poprzedni, [name]:Boolean( checked)
-            }})
+        props.changeFormCheckboxHendel(e)
     }
 
-    const changeValueHendel=(e)=>{
-        const{name, value}=e.target
-        console.log(Boolean( value))
-        setCheckboxValue(poprzedni=>{
-            return{
-                ...poprzedni, [name]:value
-            }})
-    }
-
-    useEffect(()=>{
-        console.log(checkboxValue)
-    },[checkboxValue])
     return(
         <div className="typeCeremony">
-            <h1>INFORMACJE DOTYCZĄCE CEREMONI</h1>
+            <h3>INFORMACJE DOTYCZĄCE CEREMONII</h3>
             <div className="border"></div>
-            <div className="checkboxes">
-            <Checkedbox changeCheckboxHendel={changeCheckboxHendel} checkboxValue={checkboxValue.a}/> <h1>boll (ksiąz użędnik)</h1>
-                <h1>data ceremoni</h1>
-                <h1>godzina ceremoni</h1>
-                <h1>cmentarz (string)</h1>
-                <h1>bull()trumna urna</h1>
-                <h1>wiozanka (typ, rodzaj)</h1>
-                <h1>karawan(typ)</h1>
-                <input type="text" name="test" value={checkboxValue.test} onChange={changeValueHendel}/>
-                    
+            <div className="filling">
+                <div>
+                    <h2>Wybierz osobę prowadzącą ceremonię</h2>
+                    <div className="presides">
+                        <div className="this_or_that">
+                            <Checkedbox changeCheckboxHendel={changeCheckboxHendel} checkboxValue={props.form.CeremonyType} checkboxName="CeremonyType" invert={false}/> <h1>KSIĄDZ</h1>
+                        </div>
+                        <div className="this_or_that">
+                            <Checkedbox changeCheckboxHendel={changeCheckboxHendel} checkboxValue={props.form.CeremonyType} checkboxName="CeremonyType" invert={true}/> <h1>URZĘDNIK</h1>
+                        </div>
+                    </div>
+                </div>
+                <DateEndHouer form={props.form}  changeFormValueHendel={props.changeFormValueHendel} />
+                <SelectionCemetery cmentarze={service.cmentarze} form={props.form}  changeFormValueHendel={props.changeFormValueHendel}/>
+                <div className="burialType">
+                    <h2>Wybierz rodzaj pochówku</h2>
+                    <div className="presides">
+                        <div className="this_or_that">
+                            <Checkedbox changeCheckboxHendel={changeCheckboxHendel} checkboxValue={props.form.BurialType} checkboxName="BurialType" invert={false} /> <h1>TRUMNA</h1>
+                        </div>
+                        <div className="this_or_that">
+                            <Checkedbox changeCheckboxHendel={changeCheckboxHendel} checkboxValue={props.form.BurialType} checkboxName="BurialType" invert={true}/> <h1>URNA</h1>
+                        </div>
+                    </div>
+                    <ListCoffinsAndUrns trumny={service.trumny} urny={service.urny} checkboxValue={props.form.BurialType} form={props.form}  changeFormNumberHendel={props.changeFormNumberHendel}/>    
+                </div>
+                <TypeCar car={service.karawany} form={props.form}  changeFormNumberHendel={props.changeFormNumberHendel}/>
+                <TypeFlowers flowers={service.wiazanki} form={props.form}  changeFormNumberHendel={props.changeFormNumberHendel}/>
             </div>
+
     
         </div>
     )
 }
 
 export default TypeCeremony
+
+
+

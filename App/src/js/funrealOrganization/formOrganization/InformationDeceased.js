@@ -1,18 +1,15 @@
 import React, {Component, useEffect, useState} from "react";
 
 
-const InformationDeceased=()=>{
 
-    const[formValue, setformValue]=useState({name:"", surname:""})
+const InformationDeceased=(props)=>{
 
     const changeFormHendel=(e)=>{
-        const{name, value}=e.target
-
-        setformValue(prevState=>{
-            return{...prevState, [name]:value}
-        })
-
-        console.log(e.target)
+        props.changeFormValueHendel(e);
+    }
+    const  changeNumberHendel=(e)=>{
+        
+        props.changeFormNumberHendel(e);
     }
 
 
@@ -21,16 +18,16 @@ const InformationDeceased=()=>{
             <h1>INFORMACJE O ZMARŁYM</h1>
             <div className="border"></div>
             <div className="inputBoxMax">
-                <div className="inputBocMini">
-                    <div className="input"> <label>Imię</label><input type="text" name="name" /></div>   
-                    <div className="input"><label>Nazwisko</label><input type="text"name="surname" value={formValue.surname} onChange={changeFormHendel}/></div>
-                    <div className="input"><label>Data Urodzenia</label><input type="date" /></div>
-                    <div className="input"><label>Data śmierci</label><input type="date"/></div>
+                <div className="inputBoxMini">
+                    <div className="input"> <label>Imię</label><input type="text" name="Name" value={props.form.Name} onChange={changeFormHendel}/></div>   
+                    <div className="input"><label>Nazwisko</label><input type="text"name="SurName" value={props.form.SurName} onChange={changeFormHendel}/></div>
+                    <div className="input"><label>Data Urodzenia</label><input type="date"name="DateOfDeath" value={props.form.DateOfDeath} onChange={changeFormHendel} /></div>
+                    <div className="input"><label>Data śmierci</label><input type="date" name="DateOfBirth" value={props.form.DateOfBirth} onChange={changeFormHendel}/></div>
                 </div>
-                <div className="inputBocMini">
-                    <div className="input"><label>Miejsce zamiezkania</label><input type="text"/></div>
-                    <div className="input"><label>PSEL</label><input type="text"/></div>
-                    <div className="input"><label>Numer aktu zgonu</label><input type="text"/></div>
+                <div className="inputBoxMini">
+                    <div className="input"><label>Miejsce zamiezkania</label><input type="text" name="Adress" value={props.form.Adress} onChange={changeFormHendel}/></div>
+                    <div className="input"><label>PESEL</label><input type="text" name="PESEL" value={props.form.PESEL} onChange={changeNumberHendel}/></div>
+                    <div className="input"><label>Numer aktu zgonu</label><input type="text" name="DeathCertificateNumber" value={props.form.DeathCertificateNumber} onChange={changeNumberHendel}/></div>
                 </div>
             </div>
         </div>
