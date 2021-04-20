@@ -46,6 +46,7 @@ const changeValueHendel=(e)=>{
             ...poprzedni, [name]:value
         }}) 
 }
+//zdarzenie zmieniające inputaNamber
 const changeNumberHendel=(e)=>{
     const{name, value}=e.target
     if(value!=""){
@@ -69,7 +70,57 @@ const changeNumberHendel=(e)=>{
  // zdażenie wysyłania informacji do api
 
 const sendOrderHendle=()=>{
-    console.log(form)
+    const data={
+  Name:form.Name,
+  SurName:form.SurName ,
+  DateOfDeath: form.DateOfDeath,
+  DateOfBirth: form.DateOfBirth,
+  Adress: form.Adress,
+  PESEL: form.PESEL,
+  DeathCertificateNumber:form.DeathCertificateNumber,
+  CeremonyType:form.CeremonyType,
+  FunrealDateTime:new Date(),
+  Cemetery:form.Cemetery,
+  BurialType: form.BurialType,
+  FlowersType: 12,
+  CarType: form.CarType
+    };
+    console.log(data)
+    fetch("http://ostatniadroga.azurewebsites.net/api/Funreal/tomurb",{
+        method:"POST",
+        body:JSON.stringify(data),
+        headers:{
+            "Content-Type":"application/json"
+        }
+    }).then(response => response.json())
+    .then(resp => {
+      console.log(resp);
+      if(resp.success){
+        setForm({
+        Name:"",
+        SurName:"",
+        DateOfDeath: "",
+        DateOfBirth: "",
+        Adress:"",
+        PESEL:"",
+        DeathCertificateNumber:"",
+        CeremonyType:true, 
+        FunrealDate:"",
+        FunrealTime:"",
+        Cemetery:"",
+        BurialType: true,
+        BurialTypeNumber:1,
+        FlowersSmall:0,
+        FlowersMedium:1,
+        FlowersBig:0,
+        CarType: 1
+        })
+        alert("formularz został wysłany")
+      }
+      else{
+          alert(resp.faultDescription)
+      }
+    });
 }
 
 

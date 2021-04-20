@@ -4,14 +4,29 @@ import ListFunerals from "./ListFunerals";
 
 const FuneralOrganizationApp=(props)=>{
     
-    const[choiceOptions, setChoiceOptions]=useState(false)
-    const[funerals, setFunerals]=useState([{id:1,name:"Jan",surname:"Kowalski"},{id:2,name:"Zbigniew",surname:"Nowak"}])
+    const[choiceOptions, setChoiceOptions]=useState(true)//steit choiceOptions który kieruje nas do formularza
+    const[funerals, setFunerals]=useState([{id:2,name:"",surname:""}])
     // 
+    useEffect(()=>{
+        if(choiceOptions){
+        setFunerals([])   
+        fetch("http://ostatniadroga.azurewebsites.net/api/Funreal/tomurb"
+    ).then(response => response.json())
+    .then(resp => {
+        resp.forEach((el, id) => {
+            console.log(`${el.Name} ${el.SurName}`);
+            setFunerals(prev=>[...prev, {id:id,name:el.Name,surname:el.SurName}])
+        });
+        //setFunerals([]) usówanie wartości z tablicy 
+    });
     
+    }},[choiceOptions])
+
+    //zdarzenie na powrót
     const backHendle=()=>{
         props.event(0)
     }
-
+    //zdarzenie sprawdzające steita choiceOptions
     const changeChoiceOptionsHendel=()=>{
         setChoiceOptions((choiceOptions)?false:true)
     }
@@ -23,7 +38,7 @@ const FuneralOrganizationApp=(props)=>{
                     <h1>ZAPLANOWANE POGRZEBY</h1>
                     { (funerals.length>0)? <ul>{(funerals.map((el, id)=>{
                         return(
-                            <ListFunerals id={id} name={el.name} surname={el.surname} date={el.date} changeChoiceOptionsHendel={changeChoiceOptionsHendel} />)}))}
+                            <ListFunerals key={id} id={id} name={el.name} surname={el.surname} date={el.date} changeChoiceOptionsHendel={changeChoiceOptionsHendel} />)}))}
                             </ul>:<h2>Obecnie nie ma zaplanowanych pogrzebów</h2>}
                 </div>
                 <button className="organize" onClick={changeChoiceOptionsHendel}>ORGANIZUJ POGRZEB</button>

@@ -1,6 +1,9 @@
 .containerLogin{
     width: 100%;
     height: 100vh;
+    @media (max-width: 1010px){
+        height: 100%;
+    }
     
     .logo{
     
@@ -36,35 +39,17 @@
         }
         .containerInputLogo{
             margin: auto;
-            width: 60%;
-            height: 50%;
+            width: 100%;
+            height: 60%;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-        
-            input{
-                margin: auto;
-                width: 50%;
-                height: 40px;
-                border: solid 4px $colors-background;
-                border-radius: 30px;
-                text-align: center;
-                @media (max-width: 768px){
-                    width:70%;
+            justify-content: space-between;
+            @media (max-width: 1010px){
+              display: flex;
+              flex-direction: column;
 
-                }
-                @media (max-width: 480px){
-                    width:100%;
 
-                }
             }
-            label{
-                color:$colors-background;
-                margin-right: 30%;
-                font-size: 40px;
-                
-                
-            }
+
             button{
                 margin: auto;
                 padding: 10px 40px 10px 40px;
@@ -76,10 +61,95 @@
                 font-weight:700;
                 @media (max-width: 840px){
                     padding: 5px 20px 5px 20px;
-                    font-size: 1opx;
+                    font-size: 15px;
                 }
             }
-
+            .log {
+                width: 50%;
+                height: 100%;
+                margin-bottom: 20px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                @media (max-width: 1010px){
+                    width: 100%;
+                }
+                input{
+                    margin: auto;
+                    width: 50%;
+                    height: 40px;
+                    border: solid 4px $colors-background;
+                    border-radius: 30px;
+                    text-align: center;
+                    @media (max-width: 768px){
+                        width:70%;
+    
+                    }
+                    @media (max-width: 480px){
+                        width:100%;
+    
+                    }
+                }
+                label{
+                    color:$colors-background;
+                    margin-right: 30%;
+                    font-size: 40px;
+                    
+                    
+                }
+                
+    
+            }
+            .register{
+                width: 50%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                margin-bottom: 20px;
+                @media (max-width: 1010px){
+                    width: 100%;
+                }
+            .inputRegister{
+                text-align: justify;
+                width: 100%;
+               
+                
+                @media (max-width: 768px){
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                }
+                input{
+                    margin-top: 2%;
+                    width: 50%;
+                    height: 30px;
+                    border: solid 4px $colors-background;
+                    border-radius: 30px;
+                    text-align: center;
+                    margin-bottom: 3%;
+                    @media (max-width: 768px){
+                        width:70%;
+    
+                    }
+                    @media (max-width: 480px){
+                        width:100%;
+    
+                    }
+                }
+                label{
+                    color:$colors-background;
+                    margin-right: 1%;
+                    margin-left: 15%;
+                    font-size: 30px;
+                    @media (max-width: 768px){
+                        margin-left: 0px;
+                    }
+                }
+            } 
+            }
+            
         }
     }
 

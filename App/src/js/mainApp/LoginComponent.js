@@ -45,9 +45,23 @@ const LoginComponent=(props)=>{
         <div className="boxContent">
             <h1>ZALOGUJ SIĘ DO APLIKACJI</h1>
             <div className="containerInputLogo">
-                <label>Login</label><input type="text" placeholder="podaj login" value={loginValue} onChange={changeValue} name="login"/><br/>
-                <label>Hasło</label><input type="password" placeholder="podaj hasło" value={hasloValue} onChange={changeValue} name="haslo"/><br/>
-                <button onClick={loginTry}>ZALOGUJ</button>
+                <div className="log">
+                    <label>Login</label><input type="text" placeholder="podaj login" value={loginValue} onChange={changeValue} name="Login"/><br/>
+                    <label>Hasło</label><input type="password" placeholder="podaj hasło" value={hasloValue} onChange={changeValue} name="Pass"/><br/>
+                    <button onClick={loginTry}>ZALOGUJ</button>
+                </div>
+                <div className="register">
+                    <div className="inputRegister">
+                    <label>Login</label><input type="text" placeholder="nadaj login" value={loginValue} onChange={changeValue} name="Login2"/><br/>
+                    <label>Hasło</label><input type="password" placeholder="nadaj hasło" value={hasloValue} onChange={changeValue} name="Pass2"/><br/>
+                    <label>Imię</label><input type="text" placeholder="podaj imię" value={loginValue} onChange={changeValue} name="Login"/><br/>
+                    <label>Nazwisko</label><input type="text" placeholder="podaj nazwisko" value={hasloValue} onChange={changeValue} name="haslo"/><br/>
+                    <label>e-mail</label><input type="email" placeholder="podaj e-mail" value={hasloValue} onChange={changeValue} name="haslo"/><br/>
+                    </div>
+                    <div>
+                    <button onClick={loginTry}>REJESTRUJ</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -32,8 +32,19 @@
             &:hover{
                 cursor: pointer;
             }
-    }
-}
+        }
+        button{
+            background-color: $color-blue;
+            color:$colors-background;
+            border: none;
+            margin-top: 40px;
+            font-size: 20px;
+            padding: 15px 30px 15px 30px;
+            &:hover{
+                background-color: $colors-background-2;
+            }
+        }
+   }
 }
 //////////////////////////////dane o zmarłym 
 .informationDeceased{
@@ -194,30 +205,30 @@
              }
             .flowers{
                 margin-top: 25px;
+                
                 margin: auto;
                 display: flex;
                 justify-content: space-around;
-                width: 60%;
+                width: 100%;
                 label{
                     font-size: 23px;
                     color: $colors-fonts;
                 }
                 input {
+                    width: 50px;
                     padding-left: 4px;
                     margin-left:5px;
                     border: none;
                     border-bottom: solid 2px $colors-background-2;
                     background-color: $colors-background;
-                    font-size: 15px;
+                    font-size: 25px;
                     color: $color-fonts-2;
                     text-transform:capitalize;
                     
                 }
             }
-        }
-        
+        } 
     }
-
 }
 
 ////checked
