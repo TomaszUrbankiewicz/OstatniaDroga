@@ -1,26 +1,28 @@
-import React, {Component, useEffect, useState} from "react";
+import React, {Component, useCallback, useEffect, useState} from "react";
 import FuneralOrganizationform from "./FuneralOrganizationform";
 import ListFunerals from "./ListFunerals";
 
 const FuneralOrganizationApp=(props)=>{
     
     const[choiceOptions, setChoiceOptions]=useState(true)//steit choiceOptions który kieruje nas do formularza
-    const[funerals, setFunerals]=useState([{id:2,name:"",surname:""}])
+    const[funerals, setFunerals]=useState([{id:2,name:"",surname:""}]);
+    const[edit, setEdit]=useState(false)//sprawdza czy edytujemy czy dodajemy
+    const[selektetFunereal,setSelektetFunereal]=useState({name:"", surName:""})
     // 
     useEffect(()=>{
-        if(choiceOptions){
-        setFunerals([])   
-        fetch("http://ostatniadroga.azurewebsites.net/api/Funreal/tomurb"
-    ).then(response => response.json())
-    .then(resp => {
-        resp.forEach((el, id) => {
-            console.log(`${el.Name} ${el.SurName}`);
-            setFunerals(prev=>[...prev, {id:id,name:el.Name,surname:el.SurName}])
-        });
-        //setFunerals([]) usówanie wartości z tablicy 
-    });
-    
-    }},[choiceOptions])
+        reflesh()
+    },[choiceOptions])
+
+    const reflesh=()=>{
+        if(choiceOptions){  
+            fetch("http://ostatniadroga.azurewebsites.net/api/Funreal/tomurb"
+        ).then(response => response.json())
+        .then(resp => {
+            setFunerals([]) 
+            resp.forEach((el, id) => {
+                setFunerals(prev=>[...prev, {id:id,name:el.Name,surname:el.SurName}])
+            });
+    })}}
 
     //zdarzenie na powrót
     const backHendle=()=>{
@@ -28,8 +30,18 @@ const FuneralOrganizationApp=(props)=>{
     }
     //zdarzenie sprawdzające steita choiceOptions
     const changeChoiceOptionsHendel=()=>{
+        setEdit(true)
         setChoiceOptions((choiceOptions)?false:true)
     }
+//przekierowanie do edycji formularza
+    const changeEditHendel=(name, surName)=>{
+        setEdit(false)
+        setChoiceOptions((choiceOptions)?false:true)
+        setSelektetFunereal({name:name, surName:surName})
+        console.log(name, surName)
+
+    }
+
     if(choiceOptions){
     return(
         <div className="containerFuneralOrganization">
@@ -38,7 +50,7 @@ const FuneralOrganizationApp=(props)=>{
                     <h1>ZAPLANOWANE POGRZEBY</h1>
                     { (funerals.length>0)? <ul>{(funerals.map((el, id)=>{
                         return(
-                            <ListFunerals key={id} id={id} name={el.name} surname={el.surname} date={el.date} changeChoiceOptionsHendel={changeChoiceOptionsHendel} />)}))}
+                            <ListFunerals key={id} id={id} name={el.name} surname={el.surname} date={el.date} changeChoiceOptionsHendel={ changeEditHendel} reflesh={reflesh}/>)}))}
                             </ul>:<h2>Obecnie nie ma zaplanowanych pogrzebów</h2>}
                 </div>
                 <button className="organize" onClick={changeChoiceOptionsHendel}>ORGANIZUJ POGRZEB</button>
@@ -51,7 +63,7 @@ const FuneralOrganizationApp=(props)=>{
     )}
     else {
         return(
-            <FuneralOrganizationform changeChoiceOptionsHendel={changeChoiceOptionsHendel}/>
+            <FuneralOrganizationform changeChoiceOptionsHendel={changeChoiceOptionsHendel} edit={edit} selektetFunereal={selektetFunereal}/>
         )
     }
 }

@@ -11,8 +11,3 @@ $color-fonts-2:rgb(221, 212, 212);
 
 
 //mixins
-@mixin mobile {
-    @media (max-width: 800px) {
-      @content;
-    }
-  }

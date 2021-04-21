@@ -8,9 +8,9 @@ import LoginComponent from "./LoginComponent";
 
 const MainApp=(props)=>{
     //sate przechowująct informacje na której funkcjonalności aplikacji jesteśmy 
-    const [whichChoice, setWchichChoice]=useState(0)
+    const [whichChoice, setWchichChoice]=useState(1)
     //state przechowjący informacje czy użytkownik jest zalogowany
-    const [isLoget, setIsLoget]=useState(false)
+    const [isLoget, setIsLoget]=useState(true)
     
     const loginOK=()=>{
         setIsLoget((isLoget)?false:true)

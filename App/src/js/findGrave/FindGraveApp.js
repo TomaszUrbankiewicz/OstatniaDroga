@@ -7,10 +7,10 @@ const FindGraveApp=(props)=>{
     }
     
     return(
-        <>
+        <div className="bag">
         <h1>Jesteś w FindGraveApp</h1>
         <button onClick={backHendle}>cofni do wyboru</button>
-        </>
+        </div>
     )
 }
 
