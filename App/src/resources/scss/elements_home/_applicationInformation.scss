@@ -1,0 +1,52 @@
+.informationApplication{
+    background-color: $color-blue;
+    h1{
+        font-size: 36px;
+        text-align: right;
+        margin-right: 10%;
+        color: $colors-background;
+    }
+    .ornament{
+        width: 85%;
+        height: 3px;
+        margin-left: 5%;
+        background-color: $colors-background;
+        margin-bottom: 20px;
+    }
+    article{
+        
+        display: flex;
+        width: 80%;
+        margin: auto;
+        padding-bottom: 30px;
+        .containerParagraph{
+            
+            width: 70%;
+            p{
+                font-size: 26px;
+                padding: 4px;
+                color: $color-fonts-2;
+            }
+        }
+        .containerButtom{
+           
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            h1{
+                margin-bottom: 15px;
+                text-align: center;
+            }
+            button{
+                padding: 20px;
+                border: none;
+                color: $color-fonts-2;
+                background-color: $colors-background;
+                border-radius: 10px;
+
+            }
+        }
+    }
+}

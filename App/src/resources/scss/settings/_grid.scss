@@ -23,10 +23,12 @@ $column-width: 100% / $columns;
 .row {
     display: flex;
     flex-wrap: wrap;
+    
 }
 
 [class*="col-"] {
     //min-height: 100vh;
     //border: 1px solid red;
     padding: 5px;
+    
 }

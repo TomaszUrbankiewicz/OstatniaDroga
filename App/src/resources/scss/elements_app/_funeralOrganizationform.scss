@@ -1,6 +1,7 @@
 
 ////wstep do formularza
 .containerform{
+    
     width: 100%;
     height: 100%;
     text-align: center;
@@ -91,7 +92,6 @@
                     background-color: $colors-background;
                     font-size: 23px;
                     color: $color-fonts-2;
-                    text-transform:capitalize;
                     
                 }
             }
@@ -261,3 +261,27 @@
                 background:$colors-fonts;
         }
         }       
+ // kalkulator
+ .containerCalculate{
+    position: absolute;
+    position: fixed;
+    top: 255px;
+    left: 30px;
+    opacity: 70%;
+    padding: 10px;
+    background-color: $color-blue;
+    width: 275px;
+    border-radius: 8%;
+    &:hover{
+        opacity: 100%;
+    }
+    .first{
+        border: 3px solid black ;
+    }
+    .row{
+        margin-top:4px ;
+        padding-left: 5px;
+        padding-right:10px;
+        background-color: $colors-fonts;
+    }
+ }

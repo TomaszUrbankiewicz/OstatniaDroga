@@ -11,10 +11,16 @@
 
 @import "./elements_home/header";
 @import "./elements_home/hamburger";
+@import "./elements_home/applicationInformation";
+@import "./elements_home/funeralHome";
+@import "./elements_home/funeralsList";
 
 #app{
     background-color: $colors-background;
     width: 100%;
     height: 100%;
     
+}
+body{
+    background-color: $colors-background;
 }

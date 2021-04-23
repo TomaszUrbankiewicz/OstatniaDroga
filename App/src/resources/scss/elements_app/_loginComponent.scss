@@ -1,6 +1,19 @@
 .body{
     background-color:$colors-background;
 }
+.back{
+    margin-left: 88%;
+    width: 10%;
+    height: 8%;
+    padding-bottom: 0px;
+    img{
+        width: 50%;
+        height: 50%;
+    }
+    &:hover{
+        cursor: pointer;
+    }
+}
 .containerLogin{
     width: 100%;
     height: 100vh;

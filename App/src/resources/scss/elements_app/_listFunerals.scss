@@ -9,13 +9,16 @@
     .edit{
         width: 30px;
         height: 30%;
-        margin-left: 5%;
+        margin-left: 3%;
         float: right;
         img{
             margin-right: auto;
             float: right;
             width: 100%;
             height: 100%;
+            &:hover{
+                cursor: pointer;
+            }
         }
 
     }

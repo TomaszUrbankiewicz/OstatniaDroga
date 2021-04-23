@@ -28,6 +28,8 @@ const service={
         {id:2,nazwa:"ŚREDNI",cena:80,url:"/src/resources/img/znicz_sredni.jpg"},
         {id:3,nazwa:"DUŻY",cena:120,url:"/src/resources/img/znicz_duzy.jpg"}
     ],
+    oZakladzie:["Jesteśmy najstarszym zakładem pogrzebowym w okolicy. Nasza Spółdzielnia istnieje już blisko 60 lat, przez ponad 40 lat jesteśmy liderem na rynku usług pogrzebowych. Niesiemy pomoc przy organizacji ceremonii pogrzebowej. Poniżej prezentujemy naszą ofertę, która pośród usług pogrzebowych poza samą ceremonią pogrzebową bardzo kompleksowo traktuje temat pogrzebu. Każda ceremonia pogrzebowa przygotowana jest wzorowo, ponieważ pracownicy zakładu wiedzą, że dzięki swojej pracy odnoszą sukces na lokalnym rynku usług pogrzebowych."
+    ],
 
     
 }

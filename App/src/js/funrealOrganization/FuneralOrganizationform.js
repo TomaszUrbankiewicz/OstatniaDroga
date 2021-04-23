@@ -1,10 +1,17 @@
 import React, {Component, useEffect, useState} from "react";
 import InformationDeceased from "./formOrganization/InformationDeceased"
 import TypeCeremony from "./formOrganization/TypeCeremony";
-
+import Calculate from "./formOrganization/Calculate"
+import service from ".././data/service";
 
 
 const FuneralOrganizationform=(props)=>{
+    
+    const[calculatorOpen, setCalcuratorOpen]=useState(false)
+    const [price, setPrice]=useState({leader:1500, kindOfBurial:200,hearse:450,flowers:300})
+    
+    
+    
 
 const[form, setForm]=useState({
         Name:"",
@@ -25,6 +32,43 @@ const[form, setForm]=useState({
         FlowersBig:0,
         CarType: 1
     })
+
+    useEffect(()=>{ 
+        
+        let leader
+        let kindOfBuria
+        let hearse
+        let flowers
+
+        if(form.CeremonyType){
+            leader=1500
+        }
+        else{
+            leader=350
+        }
+ 
+        if(form.BurialType){
+            kindOfBuria=service.trumny[form.BurialTypeNumber-1].cena
+                
+        }
+        else{
+            kindOfBuria=service.urny[form.BurialTypeNumber-1].cena
+        }
+        
+        hearse=service.karawany[form.CarType-1].cena
+
+        flowers=(service.wiazanki[0].cena*form.FlowersSmall)+(service.wiazanki[1].cena*form.FlowersMedium)+(service.wiazanki[2].cena*form.FlowersBig)
+
+
+
+        if(price.leader!=leader){
+            setCalcuratorOpen(true)
+        }
+
+        setPrice({leader:leader, kindOfBurial:kindOfBuria,hearse:hearse,flowers:flowers})
+        
+    },[form]) 
+
 
 const back=()=>{
     props.changeChoiceOptionsHendel()
@@ -56,6 +100,7 @@ const changeNumberHendel=(e)=>{
         return{
             ...poprzedni, [name]:parseInt(value)
         }}) 
+        
     }
     }
     else{
@@ -63,6 +108,7 @@ const changeNumberHendel=(e)=>{
         return{
             ...poprzedni, [name]:(value)
         }}) 
+        
     }
 }
 
@@ -95,7 +141,7 @@ const sendOrderHendle=()=>{
 
     console.log(data)
     if(props.edit){
-    fetch("http://ostatniadroga.azurewebsites.net/api/Funreal/tomurb",{
+    fetch(`http://ostatniadroga.azurewebsites.net/api/Funreal/${props.whoLoggedd.Login}`,{
         method:"POST",
         body:JSON.stringify(data),
         headers:{
@@ -114,7 +160,7 @@ const sendOrderHendle=()=>{
         }
     });
   }
-    else{fetch(`http://ostatniadroga.azurewebsites.net/api/Funreal/tomurb/${props.selektetFunereal.name}/${props.selektetFunereal.surName}`,{
+    else{fetch(`http://ostatniadroga.azurewebsites.net/api/Funreal/${props.whoLoggedd.Login}/${props.selektetFunereal.name}/${props.selektetFunereal.surName}`,{
         method:"PUT",
         body:JSON.stringify(data),
         headers:{
@@ -136,7 +182,7 @@ const sendOrderHendle=()=>{
 
 useEffect(()=>{
     if(!props.edit){
-        fetch(`http://ostatniadroga.azurewebsites.net/api/Funreal/tomurb/${props.selektetFunereal.name}/${props.selektetFunereal.surName}`
+        fetch(`http://ostatniadroga.azurewebsites.net/api/Funreal/${props.whoLoggedd.Login}/${props.selektetFunereal.name}/${props.selektetFunereal.surName}`
         ).then(response => response.json())
         .then((resp) => {
 
@@ -177,7 +223,9 @@ useEffect(()=>{
                 <div className="back" onClick={back}>
                     <img src="/src/resources/img/back2.svg" title="COFNI"/>
                 </div>
+                {(calculatorOpen)?<Calculate price={price}/>:null}
             </div>
+            
         </div>
     )
 }

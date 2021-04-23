@@ -20,7 +20,7 @@ const ListFunerals=(props)=>{
     return(
     <li id="listFunerals" key={props.id}>{props.name} {props.surname} {props.date}
         <div className="edit" onClick={editFuneral}><img src="/src/resources/img/edit.svg" title="EDYTUJ"></img> </div>
-        <div className="edit" onClick={deleteFuneral}><img src="/src/resources/img/edit.svg" title="EDYTUJ"></img> </div>
+        <div className="edit" onClick={deleteFuneral}><img src="/src/resources/img/trash.svg" title="USUŃ"></img> </div>
     </li> )
 }
 

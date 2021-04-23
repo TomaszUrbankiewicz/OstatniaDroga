@@ -8,12 +8,14 @@ import LoginComponent from "./LoginComponent";
 
 const MainApp=(props)=>{
     //sate przechowująct informacje na której funkcjonalności aplikacji jesteśmy 
-    const [whichChoice, setWchichChoice]=useState(1)
+    const [whichChoice, setWchichChoice]=useState(0)
     //state przechowjący informacje czy użytkownik jest zalogowany
-    const [isLoget, setIsLoget]=useState(true)
+    const [isLoget, setIsLoget]=useState(false)
+    const [whoLoggedd, setWhoLoggedd]=useState("")
     
-    const loginOK=()=>{
+    const loginOK=(user)=>{
         setIsLoget((isLoget)?false:true)
+        setWhoLoggedd(user)
     }
 
     const transitionHendle=()=>{
@@ -28,15 +30,15 @@ const MainApp=(props)=>{
     if(isLoget){
         //renderowanie komponentu warunkowe uzależnione od (whichChoice)
         if(whichChoice==1){
-            return <FuneralOrganizationApp  event={selectedHendle}/>
+            return <FuneralOrganizationApp  event={selectedHendle} whoLoggedd={whoLoggedd}/>
         }
 
         else if(whichChoice==2){
-            return<CemeteryServicesApp event={selectedHendle}/>
+            return<CemeteryServicesApp event={selectedHendle} whoLoggedd={whoLoggedd}/>
         }
 
         else if(whichChoice==3){
-            return<FindGraveApp event={selectedHendle}/>
+            return<FindGraveApp event={selectedHendle} whoLoggedd={whoLoggedd}/>
         }
 
         else{
@@ -55,7 +57,7 @@ const MainApp=(props)=>{
         }
     }
     else{
-        return <LoginComponent loginOK={loginOK}/>
+        return <LoginComponent loginOK={loginOK} transitionHendle={props.transition}/>
     }
 
 }

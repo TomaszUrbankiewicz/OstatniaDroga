@@ -2,7 +2,10 @@ import React, { useEffect, useState } from 'react';
 import Header from "./Header";
 import Hamburger from "./Hamburger"
 import MenuBottom  from "./MenuBottom"
-
+import ApplicationInformation from "./ApplicationInformation"
+import FuneralHome from "./FuneralHome";
+import service from "../data/service"
+import FuneralsList from "./FuneralsList";
 const Home=(props)=>{
 /// stejt pokazujący strukture pełóne meni lub hamburger
     const[hamburgerShow, setHamburgerShow]=useState(true)
@@ -35,7 +38,10 @@ const Home=(props)=>{
     <div className="containerHome">
         {(hamburgerShow)?<Header/>:<Hamburger menuBottomHendel={menuBottomHendel} />}
         {(menuBottomShow)? null: <MenuBottom />}
-        <button onClick={transitionHendle}>wejdz na aplikacje</button>
+        <FuneralHome service={service}/>
+        <FuneralsList/>
+        <ApplicationInformation transitionHendle={transitionHendle}/>
+        
     </div>
     )
 }
