@@ -11,7 +11,7 @@ const Header=()=>{
             <div className="container_nav_ul">
                 <ul>
                     {header_menu.map((el, id)=>{
-                        return(<HeaderHomeLi key={id} element={el}/>)
+                        return(<HeaderHomeLi key={id}  element={el} id={id}/>)
                     })}
                 </ul>
             </div>

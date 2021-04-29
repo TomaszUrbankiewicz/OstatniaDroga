@@ -9,7 +9,7 @@ const ListFunerals=(props)=>{
 
 
     const deleteFuneral=()=>{
-        fetch(`http://ostatniadroga.azurewebsites.net/api/Funreal/tomurb/${props.name}/${props.surname}`,{
+        fetch(`http://ostatniadroga.azurewebsites.net/api/Funreal/${props.whoLoggedd}/${props.name}/${props.surname}`,{
         method:"DELETE"
     }).then(response => response.json())
     .then(resp => {

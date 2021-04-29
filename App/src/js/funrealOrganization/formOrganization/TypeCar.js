@@ -16,7 +16,7 @@ const TypeCar=(props)=>{
                         <label >Wybierz karawan </label>
                         <select id="car styl"name="CarType" value={props.form.CarType} onChange={changeFormHendel}>
                             {props.car.map((el, id)=>{
-                                return   <option key={id} value={el.id}>{el.nazwa}: {el.cena}zł</option>
+                                return   <option key={id} value={el.id}>{el.nazwa} {el.rodzaj}: {el.cena}zł</option>
                             })}
                         </select>
                         </div>

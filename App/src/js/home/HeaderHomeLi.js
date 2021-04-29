@@ -12,7 +12,7 @@ const HeaderHomeLi=(props)=>{
         setAddClassHover(false)
     }
 
-    return( <li onMouseOver={onMouseOver_ul_hover} className={(addClassHover)?"liHover": null} onMouseLeave={onMouseLeaveHover}><a href="#">{props.element}</a></li> )
+    return( <li onMouseOver={onMouseOver_ul_hover} className={(addClassHover)?"liHover": null} onMouseLeave={onMouseLeaveHover}><a href={`#${props.id}`}>{props.element}</a></li> )
 };
 
 

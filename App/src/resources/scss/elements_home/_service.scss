@@ -1,0 +1,143 @@
+.containerservice{
+    background-color: $colors-background-2;
+    padding: 3px;
+    @media (max-width: 840px){
+      height: 100%;
+     }
+   
+    h1{
+        font-size: 36px;
+        text-align: left;
+        margin-left: 5%;
+        color: $colors-background;
+       
+    }
+    .ornament{
+        width: 85%;
+        height: 3px;
+        margin-left: 5%;
+        background-color: $colors-background;
+        margin-bottom: 20px;
+    }
+    article{
+        position: relative;
+        display: flex;
+        width: 80%;
+        margin: auto;
+        margin-bottom: 30px;
+        @media (max-width: 840px){
+            height: 100%;
+        }
+        .sliteR{
+            width: 10%;
+            height: 300px;
+            background-size: 100% 100%;
+            &:hover{
+                cursor: pointer;
+            }
+            @media (max-width: 840px){
+               top: 155px;
+                position: relative;
+                
+            }
+        }
+        .sliteL{
+            width: 10%;
+            height: 300px;
+            background-size: 100% 100%;
+            &:hover{
+                cursor: pointer;
+            }
+                @media (max-width: 840px){
+                    top: 155px;
+                    position: relative;
+                    
+                }
+            } 
+        
+
+        .showing{
+            background-size: cover;
+            width: 80%;
+            @media (max-width: 840px){
+                height: 100%;
+            }
+            
+        }
+    }
+}
+
+
+
+
+////poszczególne elementy
+.container_el_service{
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    background-color: #ffff;
+    color:$colors-background;
+   
+   
+    
+    h1{
+        color:$colors-background;
+        text-align: center;
+    
+        padding-top: 10px;
+        
+    }
+    p{
+        color:$colors-background;
+        text-align: center;
+        padding-top: 10px;
+        font-size: 24px;
+        @media (max-width: 1200px){
+            font-size: 18px;
+         }
+
+    }
+    .boxObject{
+        width: 100%;
+        height: 80%;
+        display: flex;
+        justify-content: center;
+        @media (max-width: 840px){
+            display: block;
+            margin: auto;
+            height: 100%;
+            width: 40%;
+        }
+        
+        .object{
+            width: 20%;
+            height: 100%;
+            @media (max-width: 840px){
+                height: 100%;
+                width: 100%;
+            }
+            h1{
+                font-size: 24px;
+                padding-top: 30px;
+                @media (max-width: 1450px){
+                    font-size: 20px;
+                 }
+                 @media (max-width: 1210px){
+                    font-size: 18px;
+                 }
+                 @media (max-width: 920px){
+                    font-size: 16px;
+                 }
+            }
+            .example{
+                width:100%;
+                
+                height: 80px;
+                background-size:contain;
+                background-position: center;
+                background-repeat:no-repeat;
+               
+            }
+        }
+    }
+}

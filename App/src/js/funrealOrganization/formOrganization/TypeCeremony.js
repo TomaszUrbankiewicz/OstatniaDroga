@@ -37,7 +37,6 @@ const TypeCeremony=(props)=>{
                     <h2>Wybierz rodzaj pochówku</h2>
                     <div className="presides">
                         <div className="this_or_that">
-                            <Checkedbox changeCheckboxHendel={changeCheckboxHendel} checkboxValue={props.form.BurialType} checkboxName="BurialType" invert={false} /> <h1>TRUMNA</h1>
                         </div>
                         <div className="this_or_that">
                             <Checkedbox changeCheckboxHendel={changeCheckboxHendel} checkboxValue={props.form.BurialType} checkboxName="BurialType" invert={true}/> <h1>URNA</h1>

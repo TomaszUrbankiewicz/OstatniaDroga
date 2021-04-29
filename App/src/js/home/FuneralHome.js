@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
 const FuneralHome=(props)=>{
+    
+    
     return(
         <section className="containerInfo">
             <h1>INFORMACJE O ZAKŁADZIE</h1>

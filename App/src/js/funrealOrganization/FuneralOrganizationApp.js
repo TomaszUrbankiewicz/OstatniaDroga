@@ -55,7 +55,7 @@ const FuneralOrganizationApp=(props)=>{
                     <h1>ZAPLANOWANE POGRZEBY</h1>
                     { (funerals.length>0)? <ul>{(funerals.map((el, id)=>{
                         return(
-                            <ListFunerals key={id} id={id} name={el.name} surname={el.surname} date={el.date} changeChoiceOptionsHendel={ changeEditHendel} reflesh={reflesh}/>)}))}
+                            <ListFunerals key={id} id={id} name={el.name} surname={el.surname} date={el.date} changeChoiceOptionsHendel={ changeEditHendel} reflesh={reflesh} whoLoggedd={props.whoLoggedd}/>)}))}
                             </ul>:<h2>Obecnie nie ma zaplanowanych pogrzebów</h2>}
                 </div>
                 <button className="organize" onClick={changeChoiceOptionsHendel}>ORGANIZUJ POGRZEB</button>

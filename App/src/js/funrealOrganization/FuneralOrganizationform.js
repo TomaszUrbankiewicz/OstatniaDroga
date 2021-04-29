@@ -24,7 +24,7 @@ const[form, setForm]=useState({
         CeremonyType:true, 
         FunrealDate:"",
         FunrealTime:"",
-        Cemetery:"",
+        Cemetery:"Spycimierz",
         BurialType: true,
         BurialTypeNumber:1,
         FlowersSmall:0,
@@ -149,7 +149,7 @@ const sendOrderHendle=()=>{
         }
     }).then(response => response.json())
     .then(resp => {
-        console.log(resp);
+        
         if(resp.success){
         
         alert("formularz został wysłany");
@@ -160,7 +160,10 @@ const sendOrderHendle=()=>{
         }
     });
   }
-    else{fetch(`http://ostatniadroga.azurewebsites.net/api/Funreal/${props.whoLoggedd.Login}/${props.selektetFunereal.name}/${props.selektetFunereal.surName}`,{
+
+    else
+    {console.log(data)
+        fetch(`http://ostatniadroga.azurewebsites.net/api/Funreal/${props.whoLoggedd.Login}/${props.selektetFunereal.name}/${props.selektetFunereal.surName}`,{
         method:"PUT",
         body:JSON.stringify(data),
         headers:{

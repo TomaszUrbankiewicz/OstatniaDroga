@@ -1,5 +1,6 @@
 .informationApplication{
     background-color: $color-blue;
+    
     h1{
         font-size: 36px;
         text-align: right;
@@ -19,25 +20,44 @@
         width: 80%;
         margin: auto;
         padding-bottom: 30px;
-        .containerParagraph{
+        @media (max-width: 840px){
+            display: block;
+            text-align: center;
+            width: 100%;
             
+         }
+        .containerParagraph{
             width: 70%;
             p{
                 font-size: 26px;
                 padding: 4px;
                 color: $color-fonts-2;
             }
+            @media (max-width: 840px){
+                display: block;
+                text-align: center;
+                width: 100%;
+                
+             }
         }
         .containerButtom{
-           
             width: 30%;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            @media (max-width: 840px){
+                text-align: center;
+                width: 100%;
+                margin: auto;
+                
+            }
             h1{
                 margin-bottom: 15px;
                 text-align: center;
+                @media (max-width: 840px){
+                    margin: auto;
+                }
             }
             button{
                 padding: 20px;

@@ -1,0 +1,113 @@
+
+.container{
+    //// użytkownik i lista grobów
+    .user_end_list{
+        width: 100%;
+        margin-top: 30px;
+
+        .logo{
+            width: 150px;
+            height: 130px;
+            background-repeat: no-repeat;
+            background-size: contain;
+            margin-left: 30px;
+            margin-top: 30px;
+        }
+
+        .user{
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-around;
+
+            .imgUser{
+                width: 30%;
+                text-align: center;
+                font-size: 30px;
+                color:$colors-fonts ;
+            }
+            .span_i_graves{
+                width: 60%;
+                .list_of_griver{
+                    width: 100%;
+                    max-height: 100px;
+                    border: 3px solid $color-blue ;
+                    color: $color-blue;
+                    padding: 12px;
+                    font-size: 24px;
+                    margin-top: 20px;
+                    overflow: auto;
+                    h1{
+                        padding-top: 10px;
+                        &:hover{
+                            cursor: pointer;
+                            color: $colors-fonts; 
+                        }
+                    }
+                }
+            }
+            span{
+                font-size: 28px;
+                color: $colors-fonts;
+            }
+        }
+    }
+
+    .choiceReference{
+        margin-top: 100px;
+        color: $colors-background-2;
+        #date{
+            font-size: 30px;
+            padding-left: 50px;
+        }
+        input{
+            border: 1px solid $color-blue;
+            background-color: $colors-background;
+            margin-left: 10px;
+            font-size: 30px;
+            color: $colors-background-2 ;
+            
+        }
+
+        .containerChoicebox{
+            margin-top: 70px;
+            margin-bottom: 30px;
+            display: flex;
+            font-size: 32px;
+            justify-content: center;
+
+            .Once{
+                display: flex;
+                align-items: center;
+                h1{
+                    padding-left: 10px;
+                    
+                }
+            }
+
+            .Permanently{
+                display: flex;
+                align-items: center;
+                margin-left: 40px;
+                h1{
+                    padding-left: 10px;
+                }
+            }
+        }
+        .length_hidden{
+            display: none;
+        }
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+}

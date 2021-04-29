@@ -6,6 +6,8 @@ import ApplicationInformation from "./ApplicationInformation"
 import FuneralHome from "./FuneralHome";
 import service from "../data/service"
 import FuneralsList from "./FuneralsList";
+import Services from "./Services";
+import Contact from "./Contact"
 const Home=(props)=>{
 /// stejt pokazujący strukture pełóne meni lub hamburger
     const[hamburgerShow, setHamburgerShow]=useState(true)
@@ -20,7 +22,7 @@ const Home=(props)=>{
         if (window.innerWidth<1170){
             setHamburgerShow(false)
         }
-        else{
+        else {
             setHamburgerShow(true) 
         }
     }
@@ -35,14 +37,16 @@ const Home=(props)=>{
     }
 
     return(
-    <div className="containerHome">
+    <>
         {(hamburgerShow)?<Header/>:<Hamburger menuBottomHendel={menuBottomHendel} />}
         {(menuBottomShow)? null: <MenuBottom />}
         <FuneralHome service={service}/>
         <FuneralsList/>
+        <Services/>
         <ApplicationInformation transitionHendle={transitionHendle}/>
+        <Contact id="5"/>
         
-    </div>
+    </>
     )
 }
 

@@ -8,12 +8,15 @@
 @import"./elements_app/funeralOrganizationApp";
 @import "./elements_app/listFunerals";
 @import "./elements_app/funeralOrganizationform";
+@import "./elements_app/cemeteryServices.scss";
 
 @import "./elements_home/header";
 @import "./elements_home/hamburger";
 @import "./elements_home/applicationInformation";
 @import "./elements_home/funeralHome";
 @import "./elements_home/funeralsList";
+@import "./elements_home/service";
+@import "./elements_home/contact";
 
 #app{
     background-color: $colors-background;

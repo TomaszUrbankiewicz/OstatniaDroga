@@ -8,7 +8,7 @@ import Home from "./js/home/Home"
 
 const  App= () => {
 //steit do wykorzystywany w zdarzeniu do zmiany witoku aplikacji/strony głównej
-  const [transition, setTransition]=useState(true)
+  const [transition, setTransition]=useState(false)
 
 //zdarzenie tóre zmienia widok aplikacja?strona główna
   const transitionHendle=()=>{
