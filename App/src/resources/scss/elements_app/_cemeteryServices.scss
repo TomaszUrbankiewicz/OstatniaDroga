@@ -1,6 +1,7 @@
 
 .container{
     //// użytkownik i lista grobów
+    height: 100%;
     .user_end_list{
         width: 100%;
         margin-top: 30px;
@@ -52,9 +53,11 @@
         }
     }
 
+    //wubór powtarzania się usługi
     .choiceReference{
         margin-top: 100px;
         color: $colors-background-2;
+        transition-duration:40s;
         #date{
             font-size: 30px;
             padding-left: 50px;
@@ -88,6 +91,8 @@
                 display: flex;
                 align-items: center;
                 margin-left: 40px;
+                
+
                 h1{
                     padding-left: 10px;
                 }
@@ -96,14 +101,139 @@
         .length_hidden{
             display: none;
         }
+        .length{
+            
+            width: 20%;
+            margin-left: 60%;
+            .example{
+                display: flex;
+                margin-top: 10px;
+                h1{
+                    margin-left: 15px;
+                    font-size: 20px;
+                    
+                }
+            }
+        }
 
     }
 
+////------------------------------------------------------------------------------------------------------//
+    .service{
+        
+        padding-top: 100px;
+        height: 100%;
+        width: 100%;
+
+        .container_buttom{
+            display: flex;
+            justify-content: center;
+            button{
+                
+                padding: 25px;
+                margin-left: 30px;
+                border: 3px solid $color-blue;
+                color: $color-blue;
+                background-color: $colors-background;
+                &:hover{
+                    cursor: pointer;
+                    background-color: $color-blue;
+                    color: $colors-background;
+                    font-weight: 700;
+                }
+
+            }
+            .click{
+                background-color: $color-blue;
+                color: $colors-background;
+                font-weight: 700;
+                box-shadow: 5px 5px 13px $colors-background-2;
+            } 
+        }
+        .box_chang{
+            width: 60%;
+            height: 100px;
+            margin: auto;
+            margin-top: 40px;
+            position: relative;
+            margin-bottom: 40px;
+            .clean, .lamp, .box_monument{
+                position: absolute;
+                top: 0;
+                width: 100%;
+                padding: 20px;
+                border: 3px solid $colors-fonts;
+                transition: opacity 0.5s linear, visibility 0.5s linear ;
+
+                .box_input_namber{
+                    margin-top:10px;
+                }
+
+                .boxCheckedbox{
+                    display: flex;
+                    margin-top: 5px;
+                    h1{
+                        margin-left: 8px;
+                        font-size: 22px;
+                        color: $color-fonts-2;
+                    }
+                }
 
 
+                label{
+                    margin-right: 8px;
+                    
+                    font-size: 22px;
+                    color: $color-fonts-2;
+                }
+                input{
+                    background-color: $colors-background-2;
+                }
+                .monument{
+                    width: 100%;
 
+                    .img{
+                        width: 100%;
+                        height: 190px;
+                        background-repeat:no-repeat ;
+                        background-position: center;
+                        background-size: contain;
+                    }
+                }
+            }
+            .box_monument{
+                display: flex;
+            }
+            .service-hidden{
+                visibility: hidden;
+                opacity: 0;
+            }
+        }
+        
+    }
+    .back{
+        margin-top: 80px;
+        width: 50px;
+        height: 50px;
+        z-index: 3;
+        img{
+            width:100%;
+            height: 100%;
+            display: inline-block;
+        }
 
+    }
 
+    .boxAkcept{
+        margin: auto;
+        margin-top:190px ;
+        display: flex;
+        justify-content: center;
+    #add{
+        color: green;
+        padding: 20px;
+    }
+}
 
 
 

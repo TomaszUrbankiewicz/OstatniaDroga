@@ -2,52 +2,31 @@ import React, {Component, useEffect, useState} from "react";
 
 
 
-const YourGraves=()=>{
-    const [grivers, setGrivers]=useState([{//przechowuje tablice z groami uzytkownika
-        Name:"Tom",
-        SurName:"Urb", 
-        Cemetery:"Spycimierz", 
-        DateOfDeath: "20-03-2018",
-        DateOfBirth: "03-05-1980",
-        FunrealDate:"20-11-2018",
-        position:{
-                sector:"B",
-                row:22,
-                place:234
-        } 
-    },
-    {Name:"Tom22",
-    SurName:"Urb22", 
-    Cemetery:"Spycimierz22", 
-    DateOfDeath: "20-03-2018",
-    DateOfBirth: "03-05-1980",
-    FunrealDate:"20-11-2018",
-    position:{
-            sector:"B",
-            row:22,
-            place:234
-    }} ,
-    {Name:"Tom22",
-    SurName:"Urb22", 
-    Cemetery:"Spycimierz22", 
-    DateOfDeath: "20-03-2018",
-    DateOfBirth: "03-05-1980",
-    FunrealDate:"20-11-2018",
-    position:{
-            sector:"B",
-            row:22,
-            place:234
-    }} 
-])   
+const YourGraves=(props)=>{
+    const [grivers, setGrivers]=useState([])  
+    const [selectetId, setSelectetId]=useState()
 
+    useEffect(()=>{
+        fetch(`http://ostatniadroga.azurewebsites.net/api/Graves/${props.whoLoggedd.Login}`       ////${props.whoLoggedd.Login}
+        ).then(response => response.json())
+        .then(resp => {
+            setGrivers(resp)
+        })
+    },[])
+
+    const choiceGrave=(e)=>{
+        setSelectetId(e.target.id)
+        props.editForm(grivers[e.target.id].Name,grivers[e.target.id].SurName)
+        
+    }
     return(
         <article className="list_of_griver">
-            
-            {grivers.map((el, id)=>{
+            {(grivers.length>0)?
+            grivers.map((el, id)=>{
             return(
-                <h1 key={id}>{el.Name} {el.SurName} {el.FunrealDate} {el.Cemetery} {el.position.sector}/{el.position.row}/{el.position.place}</h1>
+                <h1 style={{color:(selectetId==id & props.show)?"#85B7ED":null}} onClick={choiceGrave}id={id} key={id}> {el.Name} {el.SurName} {el.FunrealDate.slice(0,10)} {el.Cemetery} {el.Position.Sector}/{el.Position.Row}/{el.Position.Place}</h1>
             )
-            })}
+            }):null}
         </article>
     )
 }

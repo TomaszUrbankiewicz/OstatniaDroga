@@ -24,9 +24,15 @@ const service={
         {id:3,nazwa:"DUŻA",cena:120,url:"/src/resources/img/wiazanka_duza.jpg"}
     ],
     znicz:[
-        {id:1,nazwa:"MMAŁY",cena:3,url:"/src/resources/img/znicz_maly.jpg"},
+        {id:1,nazwa:"MAŁY",cena:3,url:"/src/resources/img/znicz_maly.jpg"},
         {id:2,nazwa:"ŚREDNI",cena:8,url:"/src/resources/img/znicz_sredni.jpg"},
         {id:3,nazwa:"DUŻY",cena:12,url:"/src/resources/img/znicz_duzy.jpg"}
+    ],
+    pomnik:[
+        {id:1,nazwa:"1",cena:4800,url:"/src/resources/img/pomnik1.jpg"},
+        {id:2,nazwa:"2",cena:8000,url:"/src/resources/img/pomnik2.jpg"},
+        {id:3,nazwa:"3",cena:3800,url:"/src/resources/img/pomnik3.jpg"},
+        {id:4,nazwa:"4",cena:4200,url:"/src/resources/img/pomnik4.jpg"}
     ],
     oZakladzie:["Jesteśmy najstarszym zakładem pogrzebowym w okolicy. Nasza Spółdzielnia istnieje już blisko 60 lat, gdzie od 40 lat jesteśmy liderem na rynku usług pogrzebowych. Niesiemy pomoc przy organizacji ceremonii pogrzebowej. Poniżej mogą państwo zapoznać się z naszą ofertą. Każda ceremonia pogrzebowa przygotowana jest wzorowo, ponieważ pracownicy zakładu wiedzą, że dzięki swojej pracy odnoszą sukces na lokalnym rynku usług pogrzebowych."
     ],

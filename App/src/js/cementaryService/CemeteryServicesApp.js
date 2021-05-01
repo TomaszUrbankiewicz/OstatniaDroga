@@ -5,6 +5,8 @@ import Services from "./Services";
 
 const CemeteryServicesApp=(props)=>{
 
+    const [show, setShow ]=useState(false)
+    const [informtionGraves, setInformtionGrave]=useState({name:"", surName:""})
     const[valueCheckbox, setValueCheckbox]=useState({
         cyclicOrOnece:true,
         cyclic:{
@@ -31,8 +33,10 @@ const CemeteryServicesApp=(props)=>{
                 monument_2:false,
                 monument_3:false,
                 monument_4:false,
-            }
+            },
+        ActiveService:false
     })
+    
     
 
     const changeCheckboxHendel=(e)=>{
@@ -42,11 +46,12 @@ const CemeteryServicesApp=(props)=>{
             return{
                 ...poprzedni, [name]:Boolean(checked)
             }})
+        
     }
 
+   
 
     const changeCheckboxHendelservice=(e)=>{
-        console.log("działem")
         const{name, checked}=e.target
         setValueCheckbox(poprzedni=>{
             return{
@@ -79,14 +84,17 @@ const CemeteryServicesApp=(props)=>{
     }
 
     const changeRadioMonumentHendel=(e)=>{
+        console.log("jestem")
         const{name}=e.target
         if(name=="monument_1"){
+            console.log("jestem1")
             setValueCheckbox(poprzedni=>{
                 return{
                     ...poprzedni, monument:{monument_1:true,monument_2:false, monument_3:false,monument_4:false,}
                 }})
         }
         else  if(name=="monument_2"){
+            console.log("jestem2")
             setValueCheckbox(poprzedni=>{
                 return{
                     ...poprzedni,monument:{monument_2:true,monument_1:false, monument_3:false,monument_4:false}
@@ -126,13 +134,56 @@ const CemeteryServicesApp=(props)=>{
         }
     }
 
+    const setShowHendel=()=>{
+        setShow(false)
+        
+    }
+
     useEffect(()=>{
         console.log(valueCheckbox)
     },[valueCheckbox])
 
+    const editForm=(name, surName )=>{
+        setInformtionGrave({name:name, surName:surName})
+        fetch(`http://ostatniadroga.azurewebsites.net/api/Service/${props.whoLoggedd.Login}/${name}/${surName}`       ////
+        ).then(response => response.json())
+        .then(resp => {
+            setValueCheckbox({
+                cyclicOrOnece:resp.CyclicOrOnece,
+                cyclic:{
+                    cyclic_1:resp.Cyclic.Cyclic_1,
+                    cyclic_2:resp.Cyclic.Cyclic_2,
+                    cyclic_3:resp.Cyclic.Cyclic_3
+                },
+                    washing:resp.Washing,
+                    pastinf:resp.Pasting,
+                    tidying:resp.Tidying,
+                    deletion:resp.Deletion,
+                    care:resp.Care,
+        
+                    lampSmall:resp.LampSmall,
+                    lampMedium:resp.LampMedium,
+                    lampBig:resp.LampBig,
+        
+                    flowersSmall:resp.FlowersSmall,
+                    flowersMedium:resp.FlowersMedium,
+                    flowersBig:resp.FlowersBig,
+        
+                    monument:{
+                        monument_1:resp.Monument.Monument_1,
+                        monument_2:resp.Monument.Monument_2,
+                        monument_3:resp.Monument.Monument_3,
+                        monument_4:resp.Monument.Monument_4,
+                    },
+                ActiveService:resp.ActiveService}
+        )})
+        setShow(true)
+    }
+
 //COFanie
     const backHendle=()=>{
         props.event(0)
+        
     }
     
     return(
@@ -142,17 +193,20 @@ const CemeteryServicesApp=(props)=>{
                 <div className="user">
                     <div className="imgUser">
                         <div className="img"><img src="/src/resources/img/user.svg"/></div>
-                        <h1>Tomek</h1>
+                        <h1>{props.whoLoggedd.Name}</h1>
                     </div>
                     <div className="span_i_graves">
                         <span>Twoje groby</span>
-                    <YourGraves whoLoggedd={props.whoLoggedd}/>
+                    <YourGraves whoLoggedd={props.whoLoggedd} editForm={editForm} show={show} />
                     </div>
                 </div>
             </div>
-            <PermanentlyOrOnce changeCheckbox={changeCheckboxHendel} changeRadio={changeRadioHendel} _valueCheckbox={valueCheckbox} />
-            <Services  changeRadioMonumentHendel={ changeRadioMonumentHendel}changeCheckbox={changeCheckboxHendelservice} _valueCheckbox={valueCheckbox} changeFormNumberHendel={changeNumberHendel}/>
-        <button onClick={backHendle}>cofni do wyboru</button>
+            {(show)?<PermanentlyOrOnce name_surName={informtionGraves} changeCheckbox={changeCheckboxHendel} changeRadio={changeRadioHendel} _valueCheckbox={valueCheckbox} />:null}
+            {(show)? <Services whoLoggedd={props.whoLoggedd} setShowHendel={setShowHendel} name_surName={informtionGraves} changeRadioMonumentHendel={ changeRadioMonumentHendel}changeCheckbox={changeCheckboxHendelservice} _valueCheckbox={valueCheckbox} changeFormNumberHendel={changeNumberHendel}/>:null}
+           
+        <div className="back"onClick={backHendle}>
+                    <img src="/src/resources/img/back2.svg" title="COFNI"/>
+                </div>
         </div>
     )
 }
