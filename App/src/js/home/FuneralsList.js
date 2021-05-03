@@ -4,7 +4,7 @@ import ElementListFunerali from "./ElementListFunerali"
 const FuneralsList=()=>{
 
     return(
-        <section className="FurneraliList">
+        <section className="FurneraliList"id="1" >
         <h1>LISTA POGRZEBÓW</h1>
         <div className="ornament"></div>
         <article>

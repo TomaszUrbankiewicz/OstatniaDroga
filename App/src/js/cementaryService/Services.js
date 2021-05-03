@@ -114,6 +114,10 @@ const [click, setClick]=useState(1)
             <div  className="boxCheckedbox">
                 <Checkedbox changeCheckboxHendel={props.changeCheckbox}  checkboxValue={props._valueCheckbox.care} checkboxName="care"/> <h1>Pielegnacja zieleni i roślin 15zł</h1>
             </div>
+       <div className="boxAkcept">
+            <button onClick={confirm} disabled={!props._valueCheckbox.ActiveService} id="add">ZATWIERDZ</button>
+        </div>
+       
         </div>
         <div className={(hidden==2)?"lamp":"service-hidden"}>
             <div className="box_input_namber">
@@ -128,6 +132,11 @@ const [click, setClick]=useState(1)
                 <label>{service.znicz[2].nazwa} {service.znicz[2].cena} zł/ilość:</label>
                 <input  type="number" min="0" max="50"name="lampBig" value={props._valueCheckbox.lampBig} onChange={changeFormHendel}/>
             </div>
+            <div className="boxAkcept">
+            <button onClick={confirm} disabled={!props._valueCheckbox.ActiveService} id="add">ZATWIERDZ</button>
+        </div>
+        
+        
         </div>
         <div className={(hidden==3)?"box_monument":"service-hidden"}>
             <div className="monument">
@@ -145,13 +154,15 @@ const [click, setClick]=useState(1)
             <div className="monument">
                 <Checkedbox changeCheckboxHendel={props.changeRadioMonumentHendel}  checkboxValue={props._valueCheckbox.monument.monument_4} checkboxName="monument_4"/> 
                 <div className="img" style = {{backgroundImage: `url(${service.pomnik[3].url})`}}></div>
+                <div className="boxAkcept">
+            <button onClick={confirm} disabled={!props._valueCheckbox.ActiveService} id="add">ZATWIERDZ</button>
+        </div>
+           
             </div>
         </div>
         
         </div>
-        <div className="boxAkcept">
-            <button onClick={confirm} disabled={!props._valueCheckbox.ActiveService} id="add">ZATWIERDZ</button>
-        </div>
+        
     </section>
     )}
 

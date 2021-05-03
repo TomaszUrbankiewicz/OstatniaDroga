@@ -4,7 +4,7 @@ const FuneralHome=(props)=>{
     
     
     return(
-        <section className="containerInfo">
+        <section className="containerInfo"id="0" >
             <h1>INFORMACJE O ZAKŁADZIE</h1>
             <div className="ornament"></div>
             <article>

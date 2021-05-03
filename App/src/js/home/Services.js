@@ -13,7 +13,7 @@ const Services=()=>{
     }
 
     return(
-        <section className="containerservice">
+        <section id="2" className="containerservice" style = {{backgroundImage: 'url("./src/resources/img/tło.jpg")'}}>
             <h1>NASZA OFERTA</h1>
             <div className="ornament"></div>
             <article>

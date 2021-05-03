@@ -40,9 +40,12 @@ const Home=(props)=>{
     <>
         {(hamburgerShow)?<Header/>:<Hamburger menuBottomHendel={menuBottomHendel} />}
         {(menuBottomShow)? null: <MenuBottom />}
+        <div style = {{backgroundImage: 'url("./src/resources/img/tło4.jpg")'}} className="background1"></div>
         <FuneralHome service={service}/>
         <FuneralsList/>
+        <div style = {{backgroundImage: 'url("./src/resources/img/tło3.jpg")'}} className="background1"></div>
         <Services/>
+        <div style = {{backgroundImage: 'url("./src/resources/img/tło1.jpg")'}} className="background1"></div>
         <ApplicationInformation transitionHendle={transitionHendle}/>
         <Contact id="5"/>
         

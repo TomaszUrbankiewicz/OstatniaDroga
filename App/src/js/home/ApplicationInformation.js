@@ -7,7 +7,7 @@ const ApplicationInformation=(props)=>{
     }
 
     return(
-        <section className="informationApplication">
+        <section className="informationApplication"id="3" >
             <h1>INFORMACJE O APLIKACJI</h1>
             <div className="ornament"></div>
             <article>

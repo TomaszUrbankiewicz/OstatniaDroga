@@ -1,6 +1,8 @@
 .containerservice{
     background-color: $colors-background-2;
     padding: 3px;
+    padding-top: 110px;
+    padding-bottom: 110px;
     @media (max-width: 840px){
       height: 100%;
      }
@@ -10,7 +12,9 @@
         text-align: left;
         margin-left: 5%;
         color: $colors-background;
-       
+        @media (max-width: 467px){
+            font-size: 28px;
+        }
     }
     .ornament{
         width: 85%;
@@ -18,6 +22,7 @@
         margin-left: 5%;
         background-color: $colors-background;
         margin-bottom: 20px;
+        margin-bottom: 120px;
     }
     article{
         position: relative;

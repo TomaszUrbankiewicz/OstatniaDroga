@@ -1,11 +1,13 @@
 .informationApplication{
     background-color: $color-blue;
-    
+    padding-top: 130px;
+    padding-bottom: 130px;
     h1{
         font-size: 36px;
         text-align: right;
         margin-right: 10%;
         color: $colors-background;
+        
     }
     .ornament{
         width: 85%;
@@ -37,8 +39,9 @@
                 display: block;
                 text-align: center;
                 width: 100%;
-                
+                font-size:22px ;
              }
+             
         }
         .containerButtom{
             width: 30%;
