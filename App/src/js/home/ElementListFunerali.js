@@ -8,7 +8,7 @@ const ElementListFunerali=()=>{
     
 
     useEffect(()=>{
-        fetch(`http://ostatniadroga.azurewebsites.net/api/Funreal`
+        fetch(`https://ostatniadroga.azurewebsites.net/api/Funreal`
             ).then(response => response.json())
                 .then((resp) => {
                     resp.sort(function(a,b){return new Date(a.FunrealDate) - new Date(b.FunrealDate); })

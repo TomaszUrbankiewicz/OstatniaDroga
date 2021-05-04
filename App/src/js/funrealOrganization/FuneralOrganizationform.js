@@ -7,7 +7,7 @@ import service from ".././data/service";
 
 const FuneralOrganizationform=(props)=>{
     
-    const[calculatorOpen, setCalcuratorOpen]=useState(false)
+    const[calculatorOpen, setCalcuratorOpen]=useState(true)
     const [price, setPrice]=useState({leader:1500, kindOfBurial:200,hearse:450,flowers:300})
     
     
@@ -141,7 +141,7 @@ const sendOrderHendle=()=>{
 
     console.log(data)
     if(props.edit){
-    fetch(`http://ostatniadroga.azurewebsites.net/api/Funreal/${props.whoLoggedd.Login}`,{
+    fetch(`https://ostatniadroga.azurewebsites.net/api/Funreal/${props.whoLoggedd.Login}`,{
         method:"POST",
         body:JSON.stringify(data),
         headers:{
@@ -163,7 +163,7 @@ const sendOrderHendle=()=>{
 
     else
     {console.log(data)
-        fetch(`http://ostatniadroga.azurewebsites.net/api/Funreal/${props.whoLoggedd.Login}/${props.selektetFunereal.name}/${props.selektetFunereal.surName}`,{
+        fetch(`https://ostatniadroga.azurewebsites.net/api/Funreal/${props.whoLoggedd.Login}/${props.selektetFunereal.name}/${props.selektetFunereal.surName}`,{
         method:"PUT",
         body:JSON.stringify(data),
         headers:{
@@ -185,7 +185,7 @@ const sendOrderHendle=()=>{
 
 useEffect(()=>{
     if(!props.edit){
-        fetch(`http://ostatniadroga.azurewebsites.net/api/Funreal/${props.whoLoggedd.Login}/${props.selektetFunereal.name}/${props.selektetFunereal.surName}`
+        fetch(`https://ostatniadroga.azurewebsites.net/api/Funreal/${props.whoLoggedd.Login}/${props.selektetFunereal.name}/${props.selektetFunereal.surName}`
         ).then(response => response.json())
         .then((resp) => {
 

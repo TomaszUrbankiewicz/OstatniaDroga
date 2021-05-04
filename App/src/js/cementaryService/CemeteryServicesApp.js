@@ -145,7 +145,7 @@ const CemeteryServicesApp=(props)=>{
 
     const editForm=(name, surName )=>{
         setInformtionGrave({name:name, surName:surName})
-        fetch(`http://ostatniadroga.azurewebsites.net/api/Service/${props.whoLoggedd.Login}/${name}/${surName}`       ////
+        fetch(`https://ostatniadroga.azurewebsites.net/api/Service/${props.whoLoggedd.Login}/${name}/${surName}`       ////
         ).then(response => response.json())
         .then(resp => {
             setValueCheckbox({

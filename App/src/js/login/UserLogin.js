@@ -19,13 +19,13 @@ const UserLogin=(props)=>{
 
 
     const loginTry=()=>{
-        console.log("loguje")
+        
         const user={
             Login: loginValue,
             Pass: hasloValue
         };
 
-        fetch("http://ostatniadroga.azurewebsites.net/api/Login",{
+        fetch("https://ostatniadroga.azurewebsites.net/api/Login",{
             method:"POST",
             body:JSON.stringify(user),
             headers:{
@@ -43,6 +43,7 @@ const UserLogin=(props)=>{
 
                     }
             }).catch(()=>{console.log("Brak danych z api")});
+            
     }
 
 

@@ -4,7 +4,7 @@ const FindGraveApp=(props)=>{
     
 
     const [graves, setGraves]=useState([]);
-    const [form, setForm]=useState({name:"",surname:"",cemetery:"",deathyear:0,deathyearfrom:1990,deathyearto:2015});
+    const [form, setForm]=useState({name:"",surname:"",cemetery:"",deathyear:0,deathyearfrom:1990,deathyearto:2021});
 
     const backHendle=()=>{
         props.event(0)
@@ -40,14 +40,35 @@ const FindGraveApp=(props)=>{
         }
     }
 
-console.log(form)
+    const addGrive=(e)=>{
+        fetch(`https://ostatniadroga.azurewebsites.net/api/AddGrave/${props.whoLoggedd.Login}/${graves[e.target.id].Name}/${graves[e.target.id].SurName}`,{
+            method:"PUT",
+            body:JSON.stringify({}),
+            headers:{
+                "Content-Type":"application/json"
+            }
+        }).then( resp =>{
+            return resp.json();}).then((resp)=>{
+              
+                if(resp.success){
+
+                fetch(`https://ostatniadroga.azurewebsites.net/api/Graves/Search?${(form.name!=="")?`name=${form.name}`: `name=-`}${(form.surname!=="")?`&surname=${form.surname}`: `&surname=-`}${(form.cemetery!=="")?`&cemetery=${form.cemetery}`: `&cemetery=-`}&deathyearfrom=${form.deathyearfrom}&deathyearto=${form.deathyearto}`       ////${props.whoLoggedd.Login}
+                ).then(response => response.json())
+                .then(resp => {
+                    setGraves(resp)
+                })  
+                alert("Grób dodano do Twojej listy grobów")
+            }   
+            });
+    }
+
 
 
     //////////////////////////////////&surname=${form.surname}&cemetery=${form.cemetery}&deathyear=${form.deathyear}&deathyearfrom=${form.deathyearfrom}&deathyearto=${form.deathyearto}
 
 
         useEffect(()=>{
-            fetch(`http://ostatniadroga.azurewebsites.net/api/Graves/Search?${(form.name!=="")?`name=${form.name}`: `name=-`}${(form.surname!=="")?`&surname=${form.surname}`: `&surname=-`}${(form.cemetery!=="")?`&cemetery=${form.cemetery}`: `&cemetery=-`}&deathyearfrom=${form.deathyearfrom}&deathyearto=${form.deathyearto}`       ////${props.whoLoggedd.Login}
+            fetch(`https://ostatniadroga.azurewebsites.net/api/Graves/Search?${(form.name!=="")?`name=${form.name}`: `name=-`}${(form.surname!=="")?`&surname=${form.surname}`: `&surname=-`}${(form.cemetery!=="")?`&cemetery=${form.cemetery}`: `&cemetery=-`}&deathyearfrom=${form.deathyearfrom}&deathyearto=${form.deathyearto}`       ////${props.whoLoggedd.Login}
             ).then(response => response.json())
             .then(resp => {
                 console.log(resp)
@@ -81,11 +102,11 @@ console.log(form)
                             </select>
                     </div>   
                 </div>
-                <button>SZUKAJ</button>
+                {/* <button>SZUKAJ</button> */}
             </div>
             <div className="list_container"> 
                 <h1>Wynik wyszukiwania</h1>       
-                    <section  ection className="found">
+                    <section  className="found">
                         <div className="row first">  
                             <div className="col-3">Imię</div>
                             <div className="col-3">Nazwisko</div>
@@ -105,10 +126,10 @@ console.log(form)
                                         <div className="col-1">{el.Position.Sector}</div>
                                         <div className="col-1">{el.Position.Row}</div>
                                         <div className="col-1">{el.Position.Place}</div>
-                                        <div className="col-1"> <img src="/src/resources/img/add.svg" title="Dodaj do listy grobów"></img></div>
+                                        <div className="col-1"> {(el.InUse)? null:<img id={id} onClick={addGrive} src="/src/resources/img/add.svg" title="Dodaj do listy grobów"></img>}</div>
                                         <div className="col-12">{el.Name} {el.SurName}</div>
                                         <div className="col-12">{el.Position.Sector}/{el.Position.Row}/{el.Position.Place} </div>
-                                        <div className="col-12">{el.Cementary} <img src="/src/resources/img/add.svg" title="Dodaj do listy grobów"></img></div>
+                                        <div className="col-12">{el.Cementary} {(el.InUse)? null:<img id={id} onClick={addGrive} src="/src/resources/img/add.svg" title="Dodaj do listy grobów"></img>}</div>
                                     </div>
                                 )
                             }):<p>BRAK WYSZUKIWANIA</p>}

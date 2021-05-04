@@ -15,7 +15,7 @@ const FuneralOrganizationApp=(props)=>{
 
     const reflesh=()=>{
         if(choiceOptions){  
-            fetch(`http://ostatniadroga.azurewebsites.net/api/Funreal/${props.whoLoggedd.Login}`
+            fetch(`https://ostatniadroga.azurewebsites.net/api/Funreal/${props.whoLoggedd.Login}`
         ).then(response => response.json())
         .then(resp => {
             setFunerals([])
@@ -39,7 +39,7 @@ const FuneralOrganizationApp=(props)=>{
         setEdit(false)
         setChoiceOptions((choiceOptions)?false:true)
         setSelektetFunereal({name:name, surName:surName})
-        console.log(name, surName)
+       
 
     }
 

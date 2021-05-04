@@ -75,7 +75,7 @@ const [click, setClick]=useState(1)
                 Monument_4: props._valueCheckbox.monument.monument_4
             }
         }
-        fetch(`http://ostatniadroga.azurewebsites.net/api/ChangeService/${props.whoLoggedd.Login}/${props.name_surName.name}/${props.name_surName.surName}`,{  ////${props.whoLoggedd.Login}
+        fetch(`https://ostatniadroga.azurewebsites.net/api/ChangeService/${props.whoLoggedd.Login}/${props.name_surName.name}/${props.name_surName.surName}`,{  ////${props.whoLoggedd.Login}
         method:"PUT",
         body:JSON.stringify(data),
         headers:{

@@ -14,7 +14,7 @@ const SingUp=(props)=>{
     }
 
         const SingUpTry=()=>{
-                console.log("jestem")
+                
             const singTry={
                 Login: valueInput.Login,
                 Pass: valueInput.Pass,
@@ -23,7 +23,7 @@ const SingUp=(props)=>{
                 Mail: valueInput.Mail
             };
 
-            fetch("http://ostatniadroga.azurewebsites.net/api/SingUp",{
+            fetch("https://ostatniadroga.azurewebsites.net/api/SingUp",{
                 method:"POST",
                 body:JSON.stringify(singTry),
                 headers:{
