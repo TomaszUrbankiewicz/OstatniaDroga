@@ -13,6 +13,7 @@ const LoginComponent=(props)=>{
         
         <div className="boxContent">
             <h1>ZALOGUJ SIĘ DO APLIKACJI</h1>
+            <p style={{color:'red'}}>Niestety ta funkcja jest niedostępna. Przepraszamy</p>
             <div className="containerInputLogo">
                 <UserLogin loginOK={props.loginOK}/>
                 <SingUp loginOK={props.loginOK}/>
