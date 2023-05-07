@@ -33,7 +33,7 @@ const Contact=()=>{
                     </div>
                 </div>
             </article>
-            <footer>Praca końcowa CoderLab Tomasz Urbankiewicz © Wszelkie prawa zastrzeżone </footer>
+            <footer>Praca końcowa CodersLab Tomasz Urbankiewicz © Wszelkie prawa zastrzeżone </footer>
         </section>
     )
     
